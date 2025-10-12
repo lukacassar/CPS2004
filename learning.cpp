@@ -1,10 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <ctime>
 
 typedef std::vector<std::pair<std::string, int>> pairlist_t;
 typedef std::string str_t;
 using integer = int;
+
+void bakePizza();
+std::string bakePizza(std::string top1);
 
 
 namespace first{
@@ -20,6 +24,16 @@ int length(std::vector<int> arr) { // discrete math!
     }
     arr.erase(arr.begin());
     return (1 + length(arr));
+}
+
+void birthday() {
+    for (int i = 0; i <= 3; i++) {
+        if(i == 2) {
+            printf("Happy Birthday dear (name) \n");
+            continue;
+        }
+        std::cout << "Happy Bithday to (name)" << std::endl;
+    }
 }
 
 int main(){
@@ -90,8 +104,8 @@ int main(){
     // condition ? true : false
     
     cout << "Enter the month" << endl;
-    int month; 
-    cin >> month;
+    int month = 2; 
+    // cin >> month;
 
     switch(month) {
         case 1:
@@ -119,8 +133,30 @@ int main(){
         break; // Optional here
     }
     std::vector<int> arr = {1,5,8,3,2,5,7,4,3};
-    cout << length(arr);
+    cout << length(arr) << endl;
+
+    srand(time(NULL));
+
+    int num = (rand() % 6) + 1;
+    cout << num << endl;
+    
+    birthday();
+
+    str_t yay = "hi";
+    cout << yay << " " << name << endl;
+    cout << yay + " " + name << endl;
+
+    bakePizza();
+    std::cout << bakePizza("pineapple") << std::endl;
+
     return 0;
+
 }
 
+void bakePizza() {
+    std::cout << "Here is your plain pizza!" << std::endl;
+}
+std::string bakePizza(std::string top1) {
+    return "Here is your pizza with " + top1 + "!\n";
+}
 
