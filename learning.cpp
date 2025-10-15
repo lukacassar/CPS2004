@@ -1,3 +1,5 @@
+// BRO CODE LEARNING C++ TUTORIAL
+
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -40,8 +42,8 @@ int main(){
     using std::cout;
     using std::endl;
     using std::cin;
-    std::cout << "Men and Women" << std::endl;
-    std::cout << "Your mom" << '\n';
+    std::cout << "M and W" << std::endl;
+    std::cout << "You" << '\n';
     // Commenting!
     /*
     Hi
