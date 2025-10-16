@@ -12,6 +12,8 @@ using integer = int;
 void bakePizza();
 std::string bakePizza(std::string top1);
 
+void printNum();
+
 
 namespace first{
     int x = 25;
@@ -38,6 +40,7 @@ void birthday() {
     }
 }
 
+int myNum = 10; // global var
 int main(){
     using std::cout;
     using std::endl;
@@ -139,7 +142,7 @@ int main(){
 
     srand(time(NULL));
 
-    int num = (rand() % 6) + 1;
+    int num = (rand() % 6) + 1; // 0-5 but now chooses 1-6
     cout << num << endl;
     
     birthday();
@@ -149,10 +152,34 @@ int main(){
     cout << yay + " " + name << endl;
 
     bakePizza();
-    std::cout << bakePizza("pineapple") << std::endl;
+    std::cout << bakePizza("pineapple");
+
+    int myNum = 19;
+    cout << ::myNum << endl; // :: for the global variable
+    cout << myNum << endl;
+    printNum();
+    
+    std::string women[4];
+    women[0] = "Joanne";
+    women[1] = "Phyllis";
+    women[3] = "Doris";
+    std::string men[] = {"Joe", "Jim", "Billy", "Peter", "Herbert", "Sliem"};
+
+    cout << men[1] << endl;
+    cout << women[3] << endl;
+
+    cout << "Men array has " << sizeof(men)/sizeof(men[0]) << " elements!" << endl;
+
+    for(int i = 0; i < sizeof(women) / sizeof(women[0]); i++) {
+        cout << "Woman at index " << i << " is called " << women[i] << endl;
+    }
+
+    for(std::string man : men) { //  a for each loop
+        cout << man << endl;
+    }
+
 
     return 0;
-
 }
 
 void bakePizza() {
@@ -162,3 +189,6 @@ std::string bakePizza(std::string top1) {
     return "Here is your pizza with " + top1 + "!\n";
 }
 
+void printNum() {
+    std::cout << "myNum called via printNum() " << myNum << std::endl;
+}
