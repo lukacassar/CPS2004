@@ -178,6 +178,28 @@ int main(){
         cout << man << endl;
     }
 
+    std::string foods[10];
+    
+    fill(foods, foods + 5, "apple");
+
+    // for (int i = 5; i < 10; i++) {
+    //   cout << "Enter food at index #" << i << endl;
+    //    std::getline(cin, foods[i]);
+    // }
+
+    for(std::string food : foods) {
+        cout << food << endl;
+    }
+
+    int grid[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
+
+
+    for(int i = 0; i < sizeof(grid)/sizeof(grid[0]); i++) {
+        for(int j = 0; j < sizeof(grid[0])/sizeof(grid[0][0]); j++) {
+            cout << grid[i][j] << " ";
+        }
+        cout << "\n";
+    }
 
     return 0;
 }
