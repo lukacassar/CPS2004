@@ -13,6 +13,8 @@ void bakePizza();
 std::string bakePizza(std::string top1);
 
 void printNum();
+void swapByValue(std::string x, std::string y);
+void swapByReference(std::string &x, std::string &y);
 
 
 namespace first{
@@ -201,7 +203,34 @@ int main(){
         cout << "\n";
     }
 
+    cout << "Mem addr of yay " << &yay << endl;
+
+    str_t ax = "Hello";
+    str_t bx = "Hi";
+
+    swapByValue(ax, bx); // pass by value, we're creating copies!
+    swapByReference(ax, bx); // pass by reference   
+
+
+    cout << ax << endl;
+    cout << bx << endl;
+
+
     return 0;
+}
+
+void swapByValue(std::string x, std::string y) {
+    std::string temp;
+    temp = x;
+    x = y;
+    y = temp;
+}
+
+void swapByReference(std::string &x, std::string &y) {
+    std::string temp;
+    temp = x;
+    x = y;
+    y = temp;
 }
 
 void bakePizza() {
