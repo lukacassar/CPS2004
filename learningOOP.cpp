@@ -1,82 +1,96 @@
 #include <iostream>
 typedef std::string str_t;
+using std::cin;
 using std::cout;
 using std::endl;
-using std::cin;
 
-class Human {
-    public: 
-        str_t name = "Dummy";
-        str_t occupation = "Vacant";
-        int age = 0;
-    
-    void eat() {
+class Human
+{
+public:
+    str_t name = "Dummy";
+    str_t occupation = "Vacant";
+    int age = 0;
+
+    void eat()
+    {
         cout << name << " is eating" << endl;
     }
 };
 
-class Student{
-    public:
-        str_t name;
-        int age;
-        double gpa;
+class Student
+{
+public:
+    str_t name;
+    int age;
+    double gpa;
 
-    Student(str_t name, int age, double gpa) {
+    Student(str_t name, int age, double gpa)
+    {
         this->name = name;
         this->age = age;
         this->gpa = gpa;
     }
 };
 
-class Pizza{
-    public:
-        str_t topping1;
-        str_t topping2;
-        
+class Pizza
+{
+public:
+    str_t topping1;
+    str_t topping2;
+
     Pizza() {}
 
-    Pizza(str_t topping1) {
+    Pizza(str_t topping1)
+    {
         this->topping1 = topping1;
     }
 
-    Pizza(str_t topping1, str_t topping2) {
+    Pizza(str_t topping1, str_t topping2)
+    {
         this->topping1 = topping1;
         this->topping2 = topping2;
     }
 };
 
-class Stove{
-    private:
-        int temp = 0;
+class Stove
+{
+private:
+    int temp = 0;
 
-    public:
-        int getTemp() {
-            return temp;
-        }
+public:
+    int getTemp()
+    {
+        return temp;
+    }
 
-        void setTemp(int temp) {
-            this->temp = temp;
-        }
+    void setTemp(int temp)
+    {
+        this->temp = temp;
+    }
 };
 
-class Animal{
-    public:
-        bool alive = true;
+class Animal
+{
+public:
+    bool alive = true;
 
-        void eat() {
-            cout << "This animal is eating" << endl;
-        }
+    void eat()
+    {
+        cout << "This animal is eating" << endl;
+    }
 };
 
-class Dog : public Animal{
-    public:
-
-        void woof() {
-            cout << "This dog is woofing" << endl;
-        }
+class Dog : public Animal
+{
+public:
+    void woof()
+    {
+        cout << "This dog is woofing" << endl;
+    }
 };
 
-int main() {
+int main()
+{
 
     Human h1;
 
@@ -96,7 +110,7 @@ int main() {
     Pizza p1("Cheese");
     Pizza p2("Mushrooms", "Anchovies");
     Pizza p3;
-    
+
     cout << "Pizza p1 has topping: " << p1.topping1 << endl;
 
     Stove stove;
@@ -114,5 +128,4 @@ int main() {
     dog.woof();
 
     return 0;
-    
 }
