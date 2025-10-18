@@ -4,6 +4,11 @@
 #include <vector>
 #include <cmath>
 #include <ctime>
+template <typename T, typename U> // add another typename so it accepts different data types
+
+auto max(T x, U y) { // compiler deduces what the return type should be
+    return (x > y) ? x : y;
+}
 
 typedef std::vector<std::pair<std::string, int>> pairlist_t;
 typedef std::string str_t;
@@ -32,6 +37,8 @@ int length(std::vector<int> arr) { // discrete math!
     return (1 + length(arr));
 }
 
+
+
 void birthday() {
     for (int i = 0; i <= 3; i++) {
         if(i == 2) {
@@ -43,6 +50,17 @@ void birthday() {
 }
 
 int myNum = 10; // global var
+
+struct student {
+    str_t name;
+    double gpa;
+    bool enrolled;
+};
+
+void printStudent(student &student);
+
+enum Numbers {one = 1, two = 2};
+
 int main(){
     using std::cout;
     using std::endl;
@@ -215,10 +233,68 @@ int main(){
     cout << ax << endl;
     cout << bx << endl;
 
+    str_t strink = "Pizza";
+    str_t *pStrink = &strink;
+    cout << *pStrink << endl; // de referencing the pointer
+    cout << pStrink << endl; // prints the memory address, &strink
 
-    return 0;
+    str_t pizzas[] = {"hawaiian", "boneless"};
+    str_t *pPizzas = pizzas;
+    cout << *pPizzas << endl; // prints the first element of pizzas[]
+
+    int *pointa = nullptr;
+    int numb = 123;
+
+    pointa = &numb;
+    
+    cout << *pointa << endl;
+    
+    // Dynamic Memory
+    int *pNum = nullptr;
+
+    pNum = new int;
+
+    *pNum = 23;
+
+    cout << *pNum << endl; // stored in the heap
+
+    delete pNum; // freeing up the memory at this address
+
+    cout << max('B', 3) << endl;
+
+    student student1;
+    student1.name = "Pietru";
+    student1.gpa = 3.5;
+    student1.enrolled = false;
+
+    cout << student1.name << endl;
+
+    printStudent(student1);
+
+    Numbers numbr = two;
+
+    switch(numbr) {
+        case 1:
+        cout << "It's the number 1" << endl;
+        break;
+        
+        case 2:
+        cout << "It's the number 2" << endl;
+        break;
+
+        default:
+        cout << "Well you'll never reach this case!" << endl;
+    }
+
+
+  return 0;
 }
 
+void printStudent(student &student) {
+    std::cout << "Name: " << student.name << std::endl;
+    std::cout << "GPA: " << student.gpa << std::endl;
+    std::cout << "Enrolled: " << (student.enrolled ? "Yes" : "No") << std::endl;
+}
 void swapByValue(std::string x, std::string y) {
     std::string temp;
     temp = x;
