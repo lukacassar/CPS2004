@@ -17,13 +17,11 @@ struct binop
 
 int main()
 {
-    const int MAX_OPERATIONS = 3;
+    const int MAX_OPERATIONS = 10;
 
     std::ofstream filetxt;
 
-    binop *binops = new binop[MAX_OPERATIONS]{
-        // Allocate on the heap
-    };
+    binop *binops = new binop[MAX_OPERATIONS]; // Allocate on the heap
 
     cout << "Your operations are to be entered in the form: opnd1 op opnd2" << endl;
     cout << "For instance, 6 / 2" << endl;
